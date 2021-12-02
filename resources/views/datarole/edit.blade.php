@@ -11,7 +11,7 @@
 <div class="me-4">
     <!--begin::Menu-->
         <a href="{{ url('datarole') }}" class="btn btn-sm btn-flex btn-info fw-bolder">Kembali ke {{$testVariable3}}</a>&nbsp;
-        <button type="submit" class="btn btn-sm btn-primary" name="btnSimpan" id="btnSimpan">Simpan Data</button>
+        <button type="submit" class="btn btn-sm btn-primary" name="btnSimpan" id="btnSimpan">Simpan Perubahan Data</button>
 </div>
 @endsection
 
@@ -35,7 +35,6 @@
                 </div>
                 <!--end::Card toolbar-->
             </div>
-
             
             <div class="card-body pt-0">
                <div class="row mb-5">

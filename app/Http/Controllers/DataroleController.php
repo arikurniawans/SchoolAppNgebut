@@ -70,30 +70,42 @@ class DataroleController extends Controller
         return view('datarole.create', $data);
     }
 
+
+    public function getEdit($id) {
+        $pengguna = DB::table('tabelguru')->get();
+        $fitur = DB::table('tblfitur')->get();
+        $akses = DB::table('tblhakakses')->get();
+        $role = DB::table('v_tblrole')->where('iduser', $id)->get();
+
+        $data = [
+            'title' => 'Ubah Data Role',
+            'pengguna' => $pengguna,
+            'datafitur' => $fitur,
+            'dataakses' => $akses,
+            'datarole' => $role,
+            'breadcrumb' => [
+                ['url' => '/' , 'name' => 'Home'],
+                ['url' => '/interface' , 'name' => 'Interface'],
+                ['url' => '/master' , 'name' => 'List Data'],
+            ],
+            
+            'testVariable' => 'Manajemen Role',
+            'testVariable2' => 'Tabel Fitur Aplikasi',
+            'testVariable3' => 'Setting Manajemen Role'
+        ];
+        
+        return view('datarole.create', $data);
+    }
+
     public function store(Request $request)
     {
-        // $role = DB::table('tblrole')->insert([
-        //     'iduser' => $request->input('pengguna'),
-        //     'role_deskripsi' => $request->input('akses'),
-        //     'idfitur' => $arr['cek'],
-        //     'publish' => $arr['pub'],
-        //     'reg_date' => Carbon::now()->toDateTimeString()
-        // ]);
-
-        // if($role) {
-        //     Alert::success('Berhasil', 'Data berhasil ditambahkan');
-        //     return redirect('/datarole');
-        // }else{
-        //     //DB::rollback();
-        //     Alert::error('Gagal', 'Gagal menambahkan data !');
-        //     return redirect('/datarole/store');
-        // }
         $fitur = $request->input('id');
         $arr = array();
         for($a=0; $a<count($fitur); $a++){
             array_push($arr, array('cek' => $fitur[$a], 'pub' => 'Y'));
         }
 
+        $role;
         foreach ($arr as $key => $value) {
             $data = array(
                 'iduser' => $request->input('pengguna'),
@@ -102,13 +114,16 @@ class DataroleController extends Controller
                 'publish' => $value['pub'],
                 'reg_date' => Carbon::now()->toDateTimeString()
             );
-            $role = DB::table('tblrole')->insert($data);
-            if($role) {
-                Route::get('/datarole/index');
-            }else{
-                //DB::rollback();
-                redirect('/datarole/store')->with('status', 'An error occurred.');
-            }
+            $role = DB::table('tblrole')->insert($data);            
+        }
+
+        if($role) {
+            Alert::success('Berhasil', 'Data berhasil ditambahkan');
+            return redirect('/datarole');
+        }else{
+            //DB::rollback();
+            Alert::error('Berhasil', 'Gagal menambahkan data');
+            return redirect('/datarole/store');
         }
     }
 
