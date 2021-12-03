@@ -158,8 +158,20 @@ Route::get('/datamatapelajaran/edit/{id}', [DatamatapelajaranController::class, 
 Route::post('/datamatapelajaran/update', [DatamatapelajaranController::class, 'update']);
 Route::get('/datamatapelajaran/hapus/{id}', [DatamatapelajaranController::class, 'destroy']);
 
+// Route Manajemen Role
 Route::post('/datarole/store', [DataroleController::class, 'store']);
+Route::post('/datarole/update', [DataroleController::class, 'update']);
 Route::get('/datarole/index', [DataroleController::class, 'getIndex']);
+Route::get('/datarole/edit/{id}', [DataroleController::class, 'getEdit']);
+Route::get('/datarole/show/{id}', [DataroleController::class, 'getShow']);
+Route::get('/datarole/hapus/{id}', [DataroleController::class, 'destroy']);
+
+Route::post('/datasiswa/store', [DatasiswaController::class, 'store']);
+Route::post('/datasiswa/update', [DatasiswaController::class, 'update']);
+Route::get('/datasiswa/index', [DatasiswaController::class, 'getIndex']);
+Route::get('/datasiswa/edit/{id}', [DatasiswaController::class, 'getEdit']);
+Route::get('/datasiswa/show/{id}', [DatasiswaController::class, 'getShow']);
+Route::get('/datasiswa/hapus/{id}', [DatasiswaController::class, 'destroy']);
 /**
  * INFO: parameter pertama itu url routenya, sementara yang di dalam array adalah Controller yang
  * berada di folder App\Http\Controllers lalu diikuti dengan nama fungsi yang akan dipanggil.

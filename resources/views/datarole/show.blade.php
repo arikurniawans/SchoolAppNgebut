@@ -6,12 +6,11 @@
 @endpush
 
 @section('sub_header_action')
-<form name="kelasinput" id="kelasinput" method="post" action="/datarole/store">
+<form name="kelasinput" id="kelasinput" method="post" action="/datarole/update">
   {{ csrf_field() }}
 <div class="me-4">
     <!--begin::Menu-->
         <a href="{{ url('datarole') }}" class="btn btn-sm btn-flex btn-info fw-bolder">Kembali ke {{$testVariable3}}</a>&nbsp;
-        <button type="submit" class="btn btn-sm btn-primary" name="btnSimpan" id="btnSimpan">Simpan Data</button>
 </div>
 @endsection
 
@@ -35,18 +34,19 @@
                 </div>
                 <!--end::Card toolbar-->
             </div>
-
-            
+                        
             <div class="card-body pt-0">
                <div class="row mb-5">
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">
                         <!--begin::Label-->
+                        <input type="hidden" value="{{$datarole[0]->iduser}}" id="id" name="id"/>
                         <label class="required fs-5 fw-bold mb-2">Pengguna</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                         <select class="form-control form-control-solid" required name="pengguna" id="pengguna">
-                            <option value="" selected>Pilih Pengguna</option>
+                         <select class="form-control form-control-solid" disabled name="pengguna" id="pengguna">
+                            <option value="">Pilih Pengguna</option>
+                            <option value="{{$datarole[0]->iduser}}" selected>({{$datarole[0]->Nip}}) - {{$datarole[0]->Nama}}</option>
                             @foreach($pengguna as $user)
                             <option value="{{$user->id}}">({{$user->Nip}}) - {{$user->Nama}}</option>
                             @endforeach
@@ -60,8 +60,9 @@
                         <label class="required fs-5 fw-bold mb-2">Role Deskripsi</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                         <select class="form-control form-control-solid" required name="akses" id="akses">
-                            <option value="" selected>Pilih Role Deskripsi</option>
+                         <select class="form-control form-control-solid" disabled name="akses" id="akses">
+                            <option value="">Pilih Role Deskripsi</option>
+                            <option value="{{$datarole[0]->role_deskripsi}}" selected>{{$datarole[0]->nama_akses}}</option>
                             @foreach($dataakses as $akses)
                             <option value="{{$akses->idhakakses}}">{{$akses->nama_akses}}</option>
                             @endforeach
@@ -112,7 +113,7 @@
                         <!--begin::Content-->
                         <div class="fw-bold">
                             <h4 class="text-gray-800 fw-bolder">Tabel Fitur</h4>
-                            <div class="fs-6 text-gray-600">Setting fitur aplikasi sesuai hak akses dan role pengguna</div>
+                            <div class="fs-6 text-gray-600">Daftar fitur aplikasi sesuai hak akses dan role pengguna</div>
                         </div>
                         <!--end::Content-->
                     </div>
@@ -127,10 +128,7 @@
                             <thead>
                             <!--begin::Table row-->
                             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0" role="row">
-                                <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 29.25px;">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" checked="checked" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1">
-                                    </div>
+                                <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 29.25px;">#
                                 </th>
                                 <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="User: activate to sort column ascending" style="width: 235.688px;">Nama Fitur</th>
                                 </tr>
@@ -139,14 +137,11 @@
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody class="text-gray-600 fw-bold">
-                            @foreach($datafitur as $fitur)
+                            	@php $no=1; @endphp
+                            @foreach($datarole as $fitur)
                             <tr class="odd">
                                 <!--begin::Checkbox-->
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" checked="checked" name="id[]" value="{{$fitur->idfitur}}">
-                                    </div>
-                                </td>
+                                <td>{{$no++}}</td>
                                 <!--end::Checkbox-->
                                 <td class="d-flex align-items-center">{{$fitur->nama_fitur}}</td>
                             </tr>                          

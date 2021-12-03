@@ -120,7 +120,7 @@
                 <div class="card-toolbar">
                     <!--begin::Toolbar-->
                     <div class="d-flex align-items-center position-relative my-1" data-kt-user-table-toolbar="base">
-                        <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                        <!-- <span class="svg-icon svg-icon-1 position-absolute ms-6">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -129,7 +129,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Cari {{ $testVariable }}..">
+                        <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Cari {{ $testVariable }}.."> -->
                         <!--end::Add user-->
                     </div>
                     <!--end::Toolbar-->
@@ -145,176 +145,27 @@
 
             <div class="card-body pt-0">
                 <!--begin::Table-->
-                <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="table-responsive"><table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" id="kt_table_users" role="grid">
-                            <!--begin::Table head-->
+                <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="table-responsive">
+
+                        <table class="table table-striped table-bordered data-table">
                             <thead>
-                            <!--begin::Table row-->
-                            <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0" role="row"><th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="
-
-
-
-													" style="width: 29.25px;">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1">
-                                    </div>
-                                </th><th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="User: activate to sort column ascending" style="width: 235.688px;">NISN</th>
-                                <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 151.047px;">Nama Siswa</th>
-                                <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 151.047px;">Kelas Siswa</th>
-                                <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="Last login: activate to sort column ascending" style="width: 151.047px;">No Telpon</th>
-                                <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="Two-step: activate to sort column ascending" style="width: 151.047px;">Alamat Siswa</th>
-                                <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_table_users" rowspan="1" colspan="1" aria-label="Joined Date: activate to sort column ascending" style="width: 151.047px;">Email</th>
-                                <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 117.375px;">Actions</th>
+                                <tr>
+                                    <th width="50" style="text-align:center;">No</th>
+                                    <th>NIS</th>
+                                    <th>NISN</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Asal Sekolah</th>
+                                    <th>No. Telepon</th>
+                                    <th width="100px">Action</th>
                                 </tr>
-                            <!--end::Table row-->
                             </thead>
-                            <!--end::Table head-->
-                            <!--begin::Table body-->
-                            <tbody class="text-gray-600 fw-bold">
-
-                            <tr class="odd">
-
-                                <!--begin::Checkbox-->
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1">
-                                    </div>
-                                </td>
-                                <!--end::Checkbox-->
-                                <!--begin::User=-->
-                                <td class="d-flex align-items-center">
-
-                                    <!--begin::User details-->
-                                    <div class="d-flex flex-column">
-                                        <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">20012224</a>
-                                    </div>
-                                    <!--begin::User details-->
-                                </td>
-                                <!--end::User=-->
-                                <!--begin::Role=-->
-                                <td>Imam Hidayah</td>
-                                <!--end::Role=-->
-                                <!--begin::Role=-->
-                                <td>X IPA 1</td>
-                                <!--end::Role=-->
-                                <!--begin::Last login=-->
-                                <td data-order="2021-10-05T11:15:33+07:00">
-                                    <div class="badge badge-light fw-bolder">08122278778</div>
-                                </td>
-                                <!--end::Last login=-->
-                                <!--begin::Two step=-->
-                                <td>Branti Raya, Natar, Lampung Selatan</td>
-                                <!--end::Two step=-->
-                                <!--begin::Joined-->
-                                <td data-order="2021-09-22T22:10:00+07:00">imam@gmail.com</td>
-                                <!--begin::Joined-->
-                                <!--begin::Action=-->
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">Actions
-                                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Angle-down.svg-->
-                                        <span class="svg-icon svg-icon-5 m-0">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<polygon points="0 0 24 0 24 24 0 24"></polygon>
-																	<path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)"></path>
-																</g>
-															</svg>
-														</span>
-                                        <!--end::Svg Icon--></a>
-                                    <!--begin::Menu-->
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                    </div>
-                                    <!--end::Menu-->
-                                </td>
-                                <!--end::Action=-->
-
-
-
-
-                            </tr>
-                            <tr class="odd">
-
-                                 <!--begin::Checkbox-->
-                                 <td>
-                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                         <input class="form-check-input" type="checkbox" value="1">
-                                     </div>
-                                 </td>
-                                 <!--end::Checkbox-->
-                                 <!--begin::User=-->
-                                 <td class="d-flex align-items-center">
-
-                                     <!--begin::User details-->
-                                     <div class="d-flex flex-column">
-                                         <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">25512974</a>
-                                     </div>
-                                     <!--begin::User details-->
-                                 </td>
-                                 <!--end::User=-->
-                                 <!--begin::Role=-->
-                                 <td>Wahyu Ramadhan</td>
-                                 <!--end::Role=-->
-                                <!--begin::Role=-->
-                                <td>X IPA 1</td>
-                                <!--end::Role=-->
-                                 <!--begin::Last login=-->
-                                 <td data-order="2021-10-05T11:15:33+07:00">
-                                     <div class="badge badge-light fw-bolder">0852556997</div>
-                                 </td>
-                                 <!--end::Last login=-->
-                                 <!--begin::Two step=-->
-                                 <td>Teluk Betung Utara, Bandar Lampung</td>
-                                 <!--end::Two step=-->
-                                 <!--begin::Joined-->
-                                 <td data-order="2021-09-22T22:10:00+07:00">wahyu@gmail.com</td>
-                                 <!--begin::Joined-->
-                                 <!--begin::Action=-->
-                                 <td class="text-end">
-                                     <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">Actions
-                                         <!--begin::Svg Icon | path: icons/duotone/Navigation/Angle-down.svg-->
-                                         <span class="svg-icon svg-icon-5 m-0">
- 															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
- 																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
- 																	<polygon points="0 0 24 0 24 24 0 24"></polygon>
- 																	<path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)"></path>
- 																</g>
- 															</svg>
- 														</span>
-                                         <!--end::Svg Icon--></a>
-                                     <!--begin::Menu-->
-                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                         <!--begin::Menu item-->
-                                         <div class="menu-item px-3">
-                                             <a href="apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                         </div>
-                                         <!--end::Menu item-->
-                                         <!--begin::Menu item-->
-                                         <div class="menu-item px-3">
-                                             <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                         </div>
-                                         <!--end::Menu item-->
-                                     </div>
-                                     <!--end::Menu-->
-                                 </td>
-                                 <!--end::Action=-->
-
-
-
-
-                             </tr>
-
+                            <tbody>
                             </tbody>
-                            <!--end::Table body-->
-                        </table></div><div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"><div class="dataTables_paginate paging_simple_numbers" id="kt_table_users_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="kt_table_users_previous"><a href="#" aria-controls="kt_table_users" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="kt_table_users" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="kt_table_users_next"><a href="#" aria-controls="kt_table_users" data-dt-idx="4" tabindex="0" class="page-link"><i class="next"></i></a></li></ul></div></div></div></div>
+                        </table>
+
+                    </div>
+                </div>
                 <!--end::Table-->
             </div>
 
@@ -328,6 +179,25 @@
 
 @push('lib-js')
 @push('lib-js')
+<script>
+        $(document).ready(function() {
+         //$('#tbltahun').load("/datatahunakademik/show");
+         var table = $('.data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "/datasiswa/index",
+            columns: [
+                {data: 'DT_RowIndex', name: 'DT_RowIndex',className: "text-center"},
+                {data: 'nis', name: 'nis'},
+                {data: 'nisn', name: 'nisn'},
+                {data: 'nama_siswa', name: 'nama_siswa'},
+                {data: 'asal_sekolah', name: 'asal_sekolah'},
+                {data: 'no_telp', name: 'no_telp'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+      });
+</script>
 @endpush
 @push('js')
 @endpush

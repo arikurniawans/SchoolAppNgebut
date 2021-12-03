@@ -20,7 +20,7 @@
             <div class="card-header border-0 pt-6">
                 <!--begin::Card title-->
                 <div class="card-title">
-                    Tambah {{ $testVariable }}
+                    Ubah {{ $testVariable }}
                 </div>
                 <!--begin::Card title-->
                 <!--begin::Card toolbar-->
@@ -60,6 +60,7 @@
                 <!--end::Notice-->
                 <!--begin::Input group-->
                 <form name="kelasinput" id="kelasinput" method="post">
+                	@foreach($datasiswa as $siswa)
                 <div class="row mb-5">
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">
@@ -67,7 +68,8 @@
                         <label class="required fs-5 fw-bold mb-2">NIS</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nis" required id="nis" autocomplete="off"/>
+                        <input type="hidden" name="id" id="id" value="{{$siswa->idsiswa}}"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nis" required id="nis" autocomplete="off" value="{{$siswa->nis}}"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -77,7 +79,7 @@
                         <label class="required fs-5 fw-bold mb-2">NISN</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nisn" required id="nisn" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nisn" required id="nisn" autocomplete="off" value="{{$siswa->nisn}}"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -89,7 +91,7 @@
                         <label class="required fs-5 fw-bold mb-2">Nama Lengkap</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama" required id="nama" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama" required id="nama" autocomplete="off" value="{{$siswa->nama_siswa}}"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -101,6 +103,7 @@
                          <!--begin::Select-->
                         <select name="jeniskelamin" class="form-select form-select-solid"required id="jeniskelamin">
                         <option value="">Silahkan Pilih Jenis Kelamin...</option>
+                        <option value="{{$siswa->jenkel}}" selected>@if($siswa->jenkel == 'l') Laki-laki @elseif($siswa->jenkel =='p') Perempuan @endif</option>
                         <option value="l">Pria</option>
                         <option value="p">Perempuan</option>
                         </select>
@@ -115,7 +118,7 @@
                         <label class="required fs-5 fw-bold mb-2">Tempat Lahir</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="tempatlahir" required id="tempatlahir" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="tempatlahir" required id="tempatlahir" autocomplete="off" value="{{$siswa->tempat_lahir}}"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -125,7 +128,7 @@
                         <label class="required fs-5 fw-bold mb-2">Tanggal Lahir</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                         <input type="date" class="form-control form-control-solid" placeholder="" name="tanggallahir" required id="tanggallahir" autocomplete="off"/>
+                         <input type="date" class="form-control form-control-solid" placeholder="" name="tanggallahir" value="{{$siswa->tgl_lahir}}" required id="tanggallahir" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -139,6 +142,7 @@
                         <!--begin::Select-->
                         <select name="agama" class="form-select form-select-solid"required id="agama">
                         <option value="">Silahkan Pilih Agama...</option>
+                        <option value="{{$siswa->agama}}" selected>{{$siswa->agama}}</option>
                         <option value="Islam">Islam</option>
                         <option value="Protestan">Protestan</option>
                         <option value="Katolik">Katolik</option>
@@ -153,7 +157,7 @@
                         <label class="required fs-5 fw-bold mb-2">Nama Ayah</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama_ayah" required id="nama_ayah" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama_ayah" value="{{$siswa->nama_ayah}}" required id="nama_ayah" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -165,7 +169,7 @@
                         <label class="required fs-5 fw-bold mb-2">Nama Ibu</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama_ibu" required id="nama_ibu" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama_ibu" required id="nama_ibu" value="{{$siswa->nama_ibu}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -175,7 +179,7 @@
                         <label class="required fs-5 fw-bold mb-2">Alamat</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="alamat" required id="alamat" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="alamat" required id="alamat" value="{{$siswa->alamat}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -195,6 +199,7 @@
                         <!--end::Input-->
                         <select name="tahun" id="tahun" required class="form-select form-select-solid">
                                <option value="">Silahkan Pilih Tahun Ijazah...</option>
+                               <option value="{{$siswa->ijazah_tahun}}" selected>{{$siswa->ijazah_tahun}}</option>
                                {{ $thn = date('Y') }}
                                @for($a=2015; $a<=$thn; $a++)
                                     <option value="{{ $a }}">{{ $a }}</option>
@@ -209,7 +214,7 @@
                         <label class="required fs-5 fw-bold mb-2">Nopes UN SMP</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nopes" required id="nopes" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nopes" required id="nopes" value="{{$siswa->ijazah_nopes}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -221,7 +226,7 @@
                         <label class="required fs-5 fw-bold mb-2">No. SHUN</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_shun" required id="no_shun" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_shun" required id="no_shun" value="{{$siswa->ijazah_no_shun}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -231,7 +236,7 @@
                         <label class="required fs-5 fw-bold mb-2">No. Ijazah</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_ijazah" required id="no_ijazah" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_ijazah" required id="no_ijazah" value="{{$siswa->ijazah_no}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -246,7 +251,7 @@
                         <label class="required fs-5 fw-bold mb-2">Asal Sekolah</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="asal_sekolah" required id="asal_sekolah" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="asal_sekolah" required id="asal_sekolah" value="{{$siswa->asal_sekolah}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -256,7 +261,7 @@
                         <label class="required fs-5 fw-bold mb-2">No. Telepon</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_telp" required id="no_telp" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="no_telp" required id="no_telp" value="{{$siswa->no_telp}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -269,7 +274,7 @@
                         <label class="required fs-5 fw-bold mb-2">Tanggal Masuk</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="date" class="form-control form-control-solid" placeholder="" name="tgl_masuk" required id="tgl_masuk" autocomplete="off"/>
+                        <input type="date" class="form-control form-control-solid" placeholder="" name="tgl_masuk" required id="tgl_masuk" value="{{$siswa->tgl_masuk}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -279,7 +284,7 @@
                         <label class="required fs-5 fw-bold mb-2">Tanggal Keluar</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="date" class="form-control form-control-solid" placeholder="" name="tgl_keluar" required id="tgl_keluar" autocomplete="off"/>
+                        <input type="date" class="form-control form-control-solid" placeholder="" name="tgl_keluar" required id="tgl_keluar" value="{{$siswa->tgl_keluar}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -292,7 +297,7 @@
                         <label class="required fs-5 fw-bold mb-2">Kerja Ayah</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="kerja_ayah" required id="kerja_ayah" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="kerja_ayah" required id="kerja_ayah" value="{{$siswa->kerja_ayah}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -302,7 +307,7 @@
                         <label class="required fs-5 fw-bold mb-2">Kerja Ibu</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="kerja_ibu" required id="kerja_ibu" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="kerja_ibu" required id="kerja_ibu" value="{{$siswa->kerja_ibu}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->  
@@ -315,7 +320,7 @@
                         <label class="required fs-5 fw-bold mb-2">Anak Ke-</label>
                         <!--end::Label-->
                         <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="anak_ke" required id="anak_ke" autocomplete="off"/>
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="anak_ke" required id="anak_ke" value="{{$siswa->anak_ke}}" autocomplete="off"/>
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
@@ -330,8 +335,9 @@
                             <rect fill="#000000" opacity="0.3" x="12" y="4" width="3" height="5" rx="0.5"/>
                         </g>
                     </svg></span>
-                    Simpan</button>
+                    Simpan Perubahan Data</button>
             </div>
+            @endforeach
         </form>
 
         </div>
@@ -365,19 +371,19 @@
 
                 $.ajax({
                   data: $('#kelasinput').serialize(),
-                  url: "/datasiswa/store",
+                  url: "/datasiswa/update",
                   type: "POST",
                   dataType: 'json',
                   success: function (data) {
                       $('#kelasinput').trigger("reset");
                       document.getElementById("saveBtn").disabled = false;
-                      $('#saveBtn').html('Simpan');
+                      $('#saveBtn').html('Simpa Perubahan Datan');
                       location.href = "/datasiswa/";
                       console.log(data);
                   },
                   error: function (data) {
                       console.log('Error:', data);
-                      $('#saveBtn').html('Simpan');
+                      $('#saveBtn').html('Simpan Perubahan Data');
                       document.getElementById("saveBtn").disabled = false;
                   }
               });
