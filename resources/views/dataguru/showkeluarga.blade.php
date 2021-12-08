@@ -147,16 +147,16 @@
                 <!--begin::Table-->
                 <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <div class="table-responsive">
-
+{{$editkeluarga}}
                         <table class="table table-striped table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th width="50" style="text-align:center;">No</th>
-                                    <th>NIP</th>
-                                    <th>Nama Guru</th>
-                                    <th>No. Telepon</th>
-                                    <th>Alamat Guru</th>
-                                    <th>Email</th>
+                                    <th>Nama Anggota Keluarga</th>
+                                    <th>Hubungan Keluarga</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Umur Anggota Keluarga</th>
                                     <th width="100px">Action</th>
                                 </tr>
                             </thead>
@@ -185,14 +185,15 @@
          var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "/dataguru/index",
+            ajax: "dataguru/showkeluarga/",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex',className: "text-center"},
-                {data: 'Nip', name: 'Nip'},
-                {data: 'Nama', name: 'Nama'},
-                {data: 'NoHp', name: 'NoHp'},
-                {data: 'NoHp', name: 'NoHp'},
-                {data: 'Email', name: 'Email'},
+                {data: 'nama_keluarga', name: 'nama_keluarga'},
+                {data: 'hubungan', name: 'hubungan'},
+                {data: 'NoHp', name: 'tempat_lahir'},
+                {data: 'tempat_lahir', name: 'NoHp'},
+                {data: 'tgl_lahir_keluarga', name: 'tgl_lahir_keluarga'},
+                {data: 'umur_anak', name: 'umur_anak'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

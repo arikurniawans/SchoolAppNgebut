@@ -172,6 +172,12 @@ Route::get('/datasiswa/index', [DatasiswaController::class, 'getIndex']);
 Route::get('/datasiswa/edit/{id}', [DatasiswaController::class, 'getEdit']);
 Route::get('/datasiswa/show/{id}', [DatasiswaController::class, 'getShow']);
 Route::get('/datasiswa/hapus/{id}', [DatasiswaController::class, 'destroy']);
+
+Route::post('/dataguru/store', [DataguruController::class, 'store']);
+Route::post('/dataguru/update', [DataguruController::class, 'update']);
+Route::get('/dataguru/index', [DataguruController::class, 'getIndex']);
+Route::get('/dataguru/edit/{id}', [DataguruController::class, 'getEdit']);
+Route::get('/dataguru/showkeluarga/{id}', [DataguruController::class, 'getKeluarga']);
 /**
  * INFO: parameter pertama itu url routenya, sementara yang di dalam array adalah Controller yang
  * berada di folder App\Http\Controllers lalu diikuti dengan nama fungsi yang akan dipanggil.
