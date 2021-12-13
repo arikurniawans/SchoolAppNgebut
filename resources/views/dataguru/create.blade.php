@@ -709,10 +709,10 @@
                                 <option value="">Pilih Mapel...</option>
                                 @foreach($datamapel as $mapel)
                                 <option value="{{$mapel->idmapel}}">({{$mapel->kode_mapel}}) - {{$mapel->nama_mapel}}</option>
+                                @endforeach
                             </select>
                             <!--end::Input-->
                         </div>
-                        @endforeach
                         <!--end::Col-->
                         <!--begin::Col-->
                         <div class="col-md-6 fv-row">

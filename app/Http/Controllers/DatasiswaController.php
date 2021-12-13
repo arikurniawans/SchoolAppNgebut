@@ -129,7 +129,8 @@ class DatasiswaController extends Controller
             'kerja_ayah' => $request->input('kerja_ayah'),
             'kerja_ibu' => $request->input('kerja_ibu'),
             'anak_ke' => $request->input('anak_ke'),
-            'reg_date' => Carbon::now()->toDateTimeString()
+            'reg_date' => Carbon::now()->toDateTimeString(),
+            'status_siswa' => 'BT'
         );
 
         $siswa = DB::table('tblsiswa')->insert($data);

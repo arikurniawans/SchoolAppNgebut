@@ -53,6 +53,7 @@ Route::get('/offline', [HomeController::class, 'offline']);
     'datauangsekolah' => DatauangsekolahController::class,
     'datasettingpembayaran' => DatasettingbayarController::class,
     'datapembayaranspp' => DatapembayaransppController::class,
+    'datasettingsiswa' => DataSettingSiswaController::class,
 
     //INFO: CONTOH INTERFACE MULAI DARI LIST DATA SAMPAI DENGAN TAMBAH
     'example' => ExampleController::class
@@ -166,6 +167,7 @@ Route::get('/datarole/edit/{id}', [DataroleController::class, 'getEdit']);
 Route::get('/datarole/show/{id}', [DataroleController::class, 'getShow']);
 Route::get('/datarole/hapus/{id}', [DataroleController::class, 'destroy']);
 
+// Route Data Siswa
 Route::post('/datasiswa/store', [DatasiswaController::class, 'store']);
 Route::post('/datasiswa/update', [DatasiswaController::class, 'update']);
 Route::get('/datasiswa/index', [DatasiswaController::class, 'getIndex']);
@@ -173,11 +175,33 @@ Route::get('/datasiswa/edit/{id}', [DatasiswaController::class, 'getEdit']);
 Route::get('/datasiswa/show/{id}', [DatasiswaController::class, 'getShow']);
 Route::get('/datasiswa/hapus/{id}', [DatasiswaController::class, 'destroy']);
 
+// Route Data Guru
 Route::post('/dataguru/store', [DataguruController::class, 'store']);
+Route::post('/dataguru/storekeluarga', [DataguruController::class, 'storekeluarga']);
+Route::post('/dataguru/storependidikan', [DataguruController::class, 'storependidikan']);
+Route::post('/dataguru/storemapel', [DataguruController::class, 'storemapel']);
+Route::post('/dataguru/updatekeluarga', [DataguruController::class, 'updatekeluarga']);
+Route::post('/dataguru/updatependidikan', [DataguruController::class, 'updatependidikan']);
+Route::post('/dataguru/updatemapel', [DataguruController::class, 'updatemapel']);
 Route::post('/dataguru/update', [DataguruController::class, 'update']);
 Route::get('/dataguru/index', [DataguruController::class, 'getIndex']);
 Route::get('/dataguru/edit/{id}', [DataguruController::class, 'getEdit']);
 Route::get('/dataguru/showkeluarga/{id}', [DataguruController::class, 'getKeluarga']);
+Route::get('/dataguru/hapus/{id}', [DataguruController::class, 'destroyguru']);
+Route::get('/dataguru/hapuskeluarga/{id}', [DataguruController::class, 'destroykeluarga']);
+Route::get('/dataguru/hapuspendidikan/{id}', [DataguruController::class, 'destroypendidikan']);
+Route::get('/dataguru/hapusmapel/{id}', [DataguruController::class, 'destroymapel']);
+Route::get('/dataguru/showpendidikan/{id}', [DataguruController::class, 'getPendidikan']);
+Route::get('/dataguru/showmapel/{id}', [DataguruController::class, 'getMapel']);
+Route::get('/dataguru/show/{id}', [DataguruController::class, 'getShow']);
+Route::get('/dataguru/show/{id}', [DataguruController::class, 'getShow']);
+
+
+Route::get('/datasettingsiswa/showkelas/{id}', [DataSettingSiswaController::class, 'getKelas']);
+Route::get('/datasettingsiswa/show/{kls}/{thn}', [DataSettingSiswaController::class, 'getShow']);
+Route::get('/datasettingsiswa/hapus/{kls}/{thn}', [DataSettingSiswaController::class, 'destroy']);
+Route::post('/datasettingsiswa/store', [DataSettingSiswaController::class, 'store']);
+Route::get('/datasettingsiswa/index', [DataSettingSiswaController::class, 'getIndex']);
 /**
  * INFO: parameter pertama itu url routenya, sementara yang di dalam array adalah Controller yang
  * berada di folder App\Http\Controllers lalu diikuti dengan nama fungsi yang akan dipanggil.

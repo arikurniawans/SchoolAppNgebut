@@ -6,100 +6,9 @@
 @endpush
 
 @section('sub_header_action')
-<div class="me-4">
-    <!--begin::Menu-->
-    <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-    <!--begin::Svg Icon | path: icons/duotone/Text/Filter.svg-->
-    <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <rect x="0" y="0" width="24" height="24" />
-                <path d="M5,4 L19,4 C19.2761424,4 19.5,4.22385763 19.5,4.5 C19.5,4.60818511 19.4649111,4.71345191 19.4,4.8 L14,12 L14,20.190983 C14,20.4671254 13.7761424,20.690983 13.5,20.690983 C13.4223775,20.690983 13.3458209,20.6729105 13.2763932,20.6381966 L10,19 L10,12 L4.6,4.8 C4.43431458,4.5790861 4.4790861,4.26568542 4.7,4.1 C4.78654809,4.03508894 4.89181489,4 5,4 Z" fill="#000000" />
-            </g>
-        </svg>
-    </span>
-    <!--end::Svg Icon-->Filter</a>
-    <!--begin::Menu 1-->
-    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-        <!--begin::Header-->
-        <div class="px-7 py-5">
-            <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-        </div>
-        <!--end::Header-->
-        <!--begin::Menu separator-->
-        <div class="separator border-gray-200"></div>
-        <!--end::Menu separator-->
-        <!--begin::Form-->
-        <div class="px-7 py-5">
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-bold">Status:</label>
-                <!--end::Label-->
-                <!--begin::Input-->
-                <div>
-                    <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                        <option></option>
-                        <option value="1">Approved</option>
-                        <option value="2">Pending</option>
-                        <option value="2">In Process</option>
-                        <option value="2">Rejected</option>
-                    </select>
-                </div>
-                <!--end::Input-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-bold">Member Type:</label>
-                <!--end::Label-->
-                <!--begin::Options-->
-                <div class="d-flex">
-                    <!--begin::Options-->
-                    <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                        <input class="form-check-input" type="checkbox" value="1" />
-                        <span class="form-check-label">Author</span>
-                    </label>
-                    <!--end::Options-->
-                    <!--begin::Options-->
-                    <label class="form-check form-check-sm form-check-custom form-check-solid">
-                        <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                        <span class="form-check-label">Customer</span>
-                    </label>
-                    <!--end::Options-->
-                </div>
-                <!--end::Options-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-bold">Notifications:</label>
-                <!--end::Label-->
-                <!--begin::Switch-->
-                <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                    <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                    <label class="form-check-label">Enabled</label>
-                </div>
-                <!--end::Switch-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Actions-->
-            <div class="d-flex justify-content-end">
-                <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-            </div>
-            <!--end::Actions-->
-        </div>
-        <!--end::Form-->
-    </div>
-    <!--end::Menu 1-->
-    <!--end::Menu-->
-</div>
-<!--end::Wrapper-->
 <!--begin::Button-->
-<a href="{{ url('dataguru/create') }}" class="btn btn-sm btn-primary">Tambah {{$testVariable}}</a>
+<a href="/dataguru" class="btn btn-sm btn-info">Kembali ke Data Guru</a>&nbsp;&nbsp;
+<a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Tambah {{$testVariable}}</a>
 @endsection
 
 @section('content')
@@ -147,20 +56,159 @@
                 <!--begin::Table-->
                 <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <div class="table-responsive">
-{{$editkeluarga}}
-                        <table class="table table-striped table-bordered data-table">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" id="kt_table_users" role="grid">
                             <thead>
                                 <tr>
                                     <th width="50" style="text-align:center;">No</th>
-                                    <th>Nama Anggota Keluarga</th>
-                                    <th>Hubungan Keluarga</th>
-                                    <th>Tempat Lahir</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Umur Anggota Keluarga</th>
+                                    <th>Jenjang Pendidikan</th>
+                                    <th>Perguruan Tinggi</th>
+                                    <th>Program Studi</th>
+                                    <th>Tahun Masuk</th>
+                                    <th>Tahun Keluar</th>
+                                    <th>IPK</th>
                                     <th width="100px">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            
+                            <tbody class="text-gray-600 fw-bold">
+                                @php $no=1; @endphp
+                                @forelse($datajenjang as $data)
+                            <tr class="odd">
+                                <td>{{$no++}}</td>
+                                <td>{{$data->Jenjang}}</td>
+                                <td>{{$data->Asalperguruantinggi}}</td>
+                                <td>{{$data->Prodi}}</td>
+                                <td>{{$data->Tahunmasuk}}</td>
+                                <td>{{$data->Tahunkeluar}}</td>
+                                <td>{{$data->Ipk}}</td>
+                                <td class="text-end">
+                                    <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">Actions
+                                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Angle-down.svg-->
+                                        <span class="svg-icon svg-icon-5 m-0">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                                    <path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)"></path>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
+                                        <!--end::Svg Icon--></a>
+                                    <!--begin::Menu-->
+                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="javascript:void(0);" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_card{{$data->id}}">Edit</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="/dataguru/hapuspendidikan/{{$data->id}}" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                    </div>
+                                    <!--end::Menu-->
+                                </td>
+                                <!--end::Action=-->
+                            </tr>
+
+                            <!--begin::Modal - New Card-->
+                            <div class="modal fade" id="kt_modal_edit_card{{$data->id}}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered mw-650px">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                <h2>Ubah Jenjang Pendidikan</h2>
+                                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                        <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                        </svg>
+                                    </span>
+                                                                                <!--end::Svg Icon-->
+                                    </div>
+                                    <!--end::Close-->
+                                    </div>
+                                <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                                <form name="kelasinput" id="kelasinput" method="post" action="/dataguru/updatependidikan">
+                                    {{ csrf_field() }}
+                                    <div class="row mb-5">
+                                        <!--begin::Col-->
+                                        <div class="col-md-6 fv-row">
+                                            <!--begin::Label-->
+                                            <input type="hidden" name="idguru" value="{{$idguru}}"/>
+                                            <input type="hidden" name="idjenjang" value="{{$data->id}}"/>
+                                            <label class="required fs-5 fw-bold mb-2">Jenjang Pendidikan</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                             <select name="jenjang" class="form-select form-select-solid" id="jenjang">
+                                                <option value="">Pilih Jenjang Pendidikan...</option>
+                                                <option value="{{$data->Jenjang}}" selected>{{strtoupper($data->Jenjang)}}</option>
+                                                <option value="s1">S1</option>
+                                                <option value="s2">S2</option>
+                                                <option value="s3">S3</option>
+                                            </select>
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Col-->
+                                        <!--begin::Col-->
+                                        <div class="col-md-6 fv-row">
+                                            <!--end::Label-->
+                                            <label class="required fs-5 fw-bold mb-2">Asal Perguruan Tinggi</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                             <input type="text" name="kampus" class="form-control" placeholder="" value="{{$data->Asalperguruantinggi}}"/>
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Col-->
+                                        <div class="col-md-6 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-5 fw-bold mb-2">Program Studi</label>
+                                            <input type="text" name="prodi" class="form-control" placeholder="" value="{{$data->Prodi}}"/>
+                                        </div>
+                                        <div class="col-md-6 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-5 fw-bold mb-2">Tahun Masuk</label>
+                                            <input type="text" name="tahunmasuk" class="form-control" placeholder="" value="{{$data->Tahunmasuk}}"/>
+                                        </div>
+                                        <div class="col-md-6 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-5 fw-bold mb-2">Tahun Keluar</label>
+                                            <input type="text" name="tahunkeluar" class="form-control" placeholder="" value="{{$data->Tahunkeluar}}"/>
+                                        </div>
+                                        <div class="col-md-6 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-5 fw-bold mb-2">IPK</label>
+                                            <input type="text" name="ipk" class="form-control" placeholder="" value="{{$data->Ipk}}"/>
+                                        </div>
+
+                                    </div>
+
+                                <div class="text-center">
+                                    <button type="reset" id="kt_modal_new_target_cancel" data-bs-dismiss="modal" class="btn btn-light me-3">Batal</button>
+                                    <button type="submit" class="btn btn-primary" id="saveBtn">Simpan Perubahan Data</button>
+                                </div>
+                            </form>
+                                                           
+                                </div>
+                                <!--end::Modal body-->
+                                </div>
+                                <!--end::Modal content-->
+                                </div>
+                                <!--end::Modal dialog-->
+                            </div>
+                            <!--end::Modal - New Card-->
+                            @empty
+                               <tr class="odd" align="center">
+                                    <td colspan="6">Belum ada data</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
 
@@ -174,31 +222,98 @@
         <!--end::Card-->
     </div>
     <!--end::Container-->
+
+<!--begin::Modal - New Card-->
+<div class="modal fade" id="kt_modal_new_card" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h2>Tambah Jenjang Pendidikan</h2>
+    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+        <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+            </svg>
+        </span>
+                                                    <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+        </div>
+    <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+    <form name="kelasinput" id="kelasinput" method="post" action="/dataguru/storependidikan">
+        {{ csrf_field() }}
+        <div class="row mb-5">
+                        <!--begin::Col-->
+                        <div class="col-md-6 fv-row">
+                            <!--begin::Label-->
+                            <input type="hidden" name="idguru" value="{{$idguru}}"/>
+                            <label class="required fs-5 fw-bold mb-2">Jenjang Pendidikan</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                             <select name="jenjang" class="form-select form-select-solid" id="jenjang">
+                                <option value="">Pilih Jenjang Pendidikan...</option>
+                                <option value="s1">S1</option>
+                                <option value="s2">S2</option>
+                                <option value="s3">S3</option>
+                            </select>
+                            <!--end::Input-->
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col-md-6 fv-row">
+                            <!--end::Label-->
+                            <label class="required fs-5 fw-bold mb-2">Asal Perguruan Tinggi</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                             <input type="text" name="kampus" class="form-control" placeholder=""/>
+                            <!--end::Input-->
+                        </div>
+                        <!--end::Col-->
+                        <div class="col-md-6 fv-row">
+                            <!--begin::Label-->
+                            <label class="required fs-5 fw-bold mb-2">Program Studi</label>
+                            <input type="text" name="prodi" class="form-control" placeholder=""/>
+                        </div>
+                        <div class="col-md-6 fv-row">
+                            <!--begin::Label-->
+                            <label class="required fs-5 fw-bold mb-2">Tahun Masuk</label>
+                            <input type="text" name="tahunmasuk" class="form-control" placeholder=""/>
+                        </div>
+                        <div class="col-md-6 fv-row">
+                            <!--begin::Label-->
+                            <label class="required fs-5 fw-bold mb-2">Tahun Keluar</label>
+                            <input type="text" name="tahunkeluar" class="form-control" placeholder=""/>
+                        </div>
+                        <div class="col-md-6 fv-row">
+                            <!--begin::Label-->
+                            <label class="required fs-5 fw-bold mb-2">IPK</label>
+                            <input type="text" name="ipk" class="form-control" placeholder=""/>
+                        </div>
+
+                    </div>
+
+    <div class="text-center">
+        <button type="reset" id="kt_modal_new_target_cancel" data-bs-dismiss="modal" class="btn btn-light me-3">Batal</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn">Simpan Data</button>
+    </div>
+</form>
+                               
+    </div>
+    <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+</div>
+<!--end::Modal - New Card-->
+
 </div>
 @endsection
 
 @push('lib-js')
 @push('lib-js')
-<script>
-        $(document).ready(function() {
-         //$('#tbltahun').load("/datatahunakademik/show");
-         var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "dataguru/showkeluarga/",
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex',className: "text-center"},
-                {data: 'nama_keluarga', name: 'nama_keluarga'},
-                {data: 'hubungan', name: 'hubungan'},
-                {data: 'NoHp', name: 'tempat_lahir'},
-                {data: 'tempat_lahir', name: 'NoHp'},
-                {data: 'tgl_lahir_keluarga', name: 'tgl_lahir_keluarga'},
-                {data: 'umur_anak', name: 'umur_anak'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
-        });
-      });
-</script>
 @endpush
 @push('js')
 @endpush

@@ -8,8 +8,8 @@
 @section('sub_header_action')
 <a href="{{ url('dataguru') }}" class="btn btn-sm btn-primary">Kembali ke {{$testVariable}}</a>&nbsp;&nbsp;
 <a href="{{ url('dataguru/showkeluarga') }}/{{$editkeluarga}}" class="btn btn-sm btn-info">Edit Data Keluarga</a>&nbsp;&nbsp;
-<a href="{{ url('dataguru/editjenjang') }}/{{$editjenjang}}" class="btn btn-sm btn-info">Edit Jenjang Pendidikan</a>&nbsp;&nbsp;
-<a href="{{ url('dataguru/editmapel') }}/{{$editmapel}}" class="btn btn-sm btn-info">Edit Mapel Ampu</a>&nbsp;&nbsp;
+<a href="{{ url('dataguru/showpendidikan') }}/{{$editjenjang}}" class="btn btn-sm btn-info">Edit Jenjang Pendidikan</a>&nbsp;&nbsp;
+<a href="{{ url('dataguru/showmapel') }}/{{$editmapel}}" class="btn btn-sm btn-info">Edit Mapel Ampu</a>&nbsp;&nbsp;
 @endsection
 
 @section('content')
