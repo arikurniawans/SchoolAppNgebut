@@ -331,9 +331,9 @@
                         <!--begin::Input-->
                         <select name="status_guru" class="form-select form-select-solid" id="status_guru">
                             <option value="">Silahkan Pilih Status Guru...</option>
-                            <option value="{{$guru->status_guru}}">{{$guru->status_guru}}</option>
+                            <option value="{{$guru->status_guru}}" selected>@if($guru->status_guru == 'GTT') GTT (Guru  Tidak  Tetap) / PTT (Pegawai  Tidak  Tetap) @else GTY (Guru Tetap Yayasan) / PTY (Pegawai Tetap Yayasan) @endif</option>
                             <option value="GTT">GTT (Guru  Tidak  Tetap) / PTT (Pegawai  Tidak  Tetap)</option>
-                            <option value="gty">GTY (Guru Tetap Yayasan) / PTY (Pegawai Tetap Yayasan)</option>
+                            <option value="GTY">GTY (Guru Tetap Yayasan) / PTY (Pegawai Tetap Yayasan)</option>
                             <!-- <option value="Honorer">Honorer</option>
                             <option value="PNS">PNS (Pegawai Negeri Sipil)</option> -->
                         </select>

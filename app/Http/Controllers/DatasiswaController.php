@@ -130,6 +130,8 @@ class DatasiswaController extends Controller
             'kerja_ibu' => $request->input('kerja_ibu'),
             'anak_ke' => $request->input('anak_ke'),
             'reg_date' => Carbon::now()->toDateTimeString(),
+            'email_wali' => $request->input('emailwali'),
+            'email_siswa' => $request->input('emailsiswa'),
             'status_siswa' => 'BT'
         );
 
@@ -168,7 +170,9 @@ class DatasiswaController extends Controller
             'kerja_ayah' => $request->input('kerja_ayah'),
             'kerja_ibu' => $request->input('kerja_ibu'),
             'anak_ke' => $request->input('anak_ke'),
-            'reg_date' => Carbon::now()->toDateTimeString()
+            'reg_date' => Carbon::now()->toDateTimeString(),
+            'email_wali' => $request->input('emailwali'),
+            'email_siswa' => $request->input('emailsiswa')
         );
 
         $siswa = DB::table('tblsiswa')->where('idsiswa', $request->input('id'))->update($data);

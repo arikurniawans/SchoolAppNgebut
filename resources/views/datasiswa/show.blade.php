@@ -111,6 +111,16 @@
                             <td width="2%">:</td>
                             <td>{{$datasiswa[0]->alamat}}</td>
                         </tr>
+                        <tr>
+                            <td width="20%"><b>Email Wali Siswa</b></td>
+                            <td width="2%">:</td>
+                            <td>{{$datasiswa[0]->email_wali}}</td>
+                        </tr>
+                        <tr>
+                            <td width="20%"><b>Email Siswa</b></td>
+                            <td width="2%">:</td>
+                            <td>{{$datasiswa[0]->email_siswa}}</td>
+                        </tr>
                         <tr style="background-color: #DCDCDC">
                             <td colspan="3"><b># Data Ijazah</b></td>
                             <td>:</td>

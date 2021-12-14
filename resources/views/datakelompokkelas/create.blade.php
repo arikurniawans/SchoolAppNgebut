@@ -62,28 +62,22 @@
                 <form id="kelasinput" name="kelasinput" method="post">
                 <div class="row mb-5">
                     <!--begin::Col-->
-                    <div class="col-md-6 fv-row">
-                        <!--begin::Label-->
-                        <label class="required fs-5 fw-bold mb-2">Kode Kelompok Kelas</label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
+                    <!-- <div class="col-md-6 fv-row">                      
+                        <label class="required fs-5 fw-bold mb-2">Kode Kelompok Kelas</label>                        
                         <input type="text" class="form-control form-control-solid" placeholder="" name="kode" />
-                        <!--end::Input-->
-                    </div>
+                        
+                    </div> -->
                     <!--end::Col-->
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">
                         <!--end::Label-->
-                        <label class="required fs-5 fw-bold mb-2">Nama Kelompok Kelas</label>
+                        <label class="required fs-5 fw-bold mb-2">Nama Kelompok Kelas <font size="2pt" color="red">*) cth. 2</font></label>
                         <!--end::Label-->
                         <!--end::Input-->
                         <input type="text" class="form-control form-control-solid" placeholder="" name="nama" />
                         <!--end::Input-->
                     </div>
                     <!--end::Col-->
-                </div>
-                <div class="row mb-5">
-                    <!--begin::Col-->
                     <div class="col-md-6 fv-row">
                         <!--begin::Label-->
                         <label class="required fs-5 fw-bold mb-2">Jurusan Kelompok Kelas</label>
@@ -97,6 +91,10 @@
                         </select>
                         <!--end::Input-->
                     </div>
+                </div>
+                <div class="row mb-5">
+                    <!--begin::Col-->
+                    
                     <!--end::Col-->
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">

@@ -317,13 +317,13 @@
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">
                         <!--end::Label-->
-                        <label class="required fs-5 fw-bold mb-2">Status Guru</label>
+                        <label class="required fs-5 fw-bold mb-2">Status Pegawai</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <select name="status_guru" class="form-select form-select-solid" id="status_guru">
-                            <option value="">Silahkan Pilih Status Guru...</option>
+                            <option value="">Silahkan Pilih Status Guru / Pegawai...</option>
                             <option value="GTT">GTT (Guru  Tidak  Tetap) / PTT (Pegawai  Tidak  Tetap)</option>
-                            <option value="gty">GTY (Guru Tetap Yayasan) / PTY (Pegawai Tetap Yayasan)</option>
+                            <option value="GTY">GTY (Guru Tetap Yayasan) / PTY (Pegawai Tetap Yayasan)</option>
                             <!-- <option value="Honorer">Honorer</option>
                             <option value="PNS">PNS (Pegawai Negeri Sipil)</option> -->
                         </select>
@@ -405,7 +405,7 @@
                         <!--end::Label-->
                         <!--begin::Input-->
                         <select name="sertifikasi" class="form-select form-select-solid" id="sertifikasi">
-                            <option value="">Silahkan Pilih Status Guru...</option>
+                            <option value="">Silahkan Pilih Status Pegawai...</option>
                             <option value="belum">Belum</option>
                             <option value="sudah">Sudah</option>
                              <option value="proses">Sedang Dalam Proses</option>

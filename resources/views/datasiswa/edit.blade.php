@@ -184,6 +184,28 @@
                     </div>
                     <!--end::Col-->  
                 </div>
+                <div class="row mb-5">
+                    <!--begin::Col-->
+                    <div class="col-md-6 fv-row">
+                        <!--end::Label-->
+                        <label class="required fs-5 fw-bold mb-2">Email Wali Siswa</label>
+                        <!--end::Label-->
+                        <!--end::Input-->
+                        <input type="email" class="form-control form-control-solid" placeholder="" name="emailwali" value="{{$siswa->email_wali}}" required id="emailwali" autocomplete="off"/>
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Col-->
+                    <!--begin::Col-->
+                    <div class="col-md-6 fv-row">
+                        <!--begin::Label-->
+                        <label class="required fs-5 fw-bold mb-2">Email Siswa</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="email" class="form-control form-control-solid" placeholder="" name="emailsiswa" value="{{$siswa->email_siswa}}" required id="emailsiswa" autocomplete="off"/>
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Col-->  
+                </div>
                 <fieldset>
                 <legend><div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: left">
                       <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 10px;">

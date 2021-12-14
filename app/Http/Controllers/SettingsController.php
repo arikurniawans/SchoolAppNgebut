@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Settings;
+// use App\Models\Settings;
 use App\Services\SettingService;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;

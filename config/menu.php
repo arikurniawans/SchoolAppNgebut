@@ -36,18 +36,18 @@ return [
             'icon' => '<i class="fa fa-building" aria-hidden="true"></i>',
             'sub' => []
         ],
+        // [
+        //     'name' => 'Data Staff',
+        //     //'role' => 'superadmin|admin|dokumentasi',
+        //     'url' => 'datastaff',
+        //     'icon' => '<i class="fa fa-users" aria-hidden="true"></i>',
+        //     'sub' => []
+        // ],
         [
-            'name' => 'Data Staff',
-            //'role' => 'superadmin|admin|dokumentasi',
-            'url' => 'datastaff',
-            'icon' => '<i class="fa fa-users" aria-hidden="true"></i>',
-            'sub' => []
-        ],
-        [
-            'name' => 'Data Guru',
+            'name' => 'Data Pegawai',
             //'role' => 'superadmin|admin|dokumentasi',
             'url' => 'dataguru',
-            'icon' => '<i class="fa fa-user" aria-hidden="true"></i>',
+            'icon' => '<i class="fa fa-users" aria-hidden="true"></i>',
             'sub' => []
         ],
         [

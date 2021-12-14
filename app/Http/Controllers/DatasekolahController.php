@@ -34,7 +34,8 @@ class DatasekolahController extends Controller
                         $btn = '<a href="/datasekolah/show/'.$row->idsekolah.'"><i class="fas fa-eye" style="font-size:15px;color:green;"></i></a>
                         &nbsp;&nbsp;<a href="/datasekolah/edit/'.$row->npsn.'"><i class="fas fa-edit" style="font-size:15px;color:#009ef7;"></i></a>
                         &nbsp;&nbsp;
-                        <a href="/datasekolah/hapus/'.$row->idsekolah.'"><i class="fas fa-trash" style="font-size:15px;color:red;"></i></a>';
+                        ';
+                        // <a href="/datasekolah/hapus/'.$row->idsekolah.'"><i class="fas fa-trash" style="font-size:15px;color:red;"></i></a>
                         return $btn;
                     })
                     ->rawColumns(['action'])
@@ -153,26 +154,70 @@ class DatasekolahController extends Controller
         $kabupaten = DB::table('tblwilayah')->where('kode', $request->post('kab'))->get();
         $kecamatan = DB::table('tblwilayah')->where('kode', $request->post('kec'))->get();
 
-        $prov = $provinsi[0]->nama;
-        $kab = $kabupaten[0]->nama;
-        $kec = $kecamatan[0]->nama;
+        if(count($provinsi) || count($kabupaten) || count($kecamatan)){
+            $prov = $provinsi[0]->nama;
+            $kab = $kabupaten[0]->nama;
+            $kec = $kecamatan[0]->nama;
 
-        $data = array(
-            'npsn' => $request->post('npsn'),
-            'nama_sekolah' => $request->post('nama_sekolah'),
-            'web_sekolah' => $request->post('web_sekolah'),
-            'notelp' => $request->post('telp'),
-            'alamat_sekolah' => $request->post('alamat'),
-            'provinsi' => $prov,
-            'kab_kota' => $kab,
-            'kec' => $kec,
-            'kode_pos' => $request->post('kodepos'),
-            'luas_tanah' => $request->post('luas'),
-            'ruang_kelas' => $request->post('ruang'),
-            'lab' => $request->post('lab'),
-            'perpus' => $request->post('perpus'),
-            'reg_date' => Carbon::now()->toDateTimeString()
-        );
+            $data = array(
+                'npsn' => $request->post('npsn'),
+                'nama_sekolah' => $request->post('nama_sekolah'),
+                'web_sekolah' => $request->post('web_sekolah'),
+                'notelp' => $request->post('telp'),
+                'alamat_sekolah' => $request->post('alamat'),
+                'provinsi' => $prov,
+                'kab_kota' => $kab,
+                'kec' => $kec,
+                'kode_pos' => $request->post('kodepos'),
+                'luas_tanah' => $request->post('luas'),
+                'ruang_kelas' => $request->post('ruang'),
+                'lab' => $request->post('lab'),
+                'perpus' => $request->post('perpus'),
+                'reg_date' => Carbon::now()->toDateTimeString()
+            );
+        }else{
+            $data = array(
+                'npsn' => $request->post('npsn'),
+                'nama_sekolah' => $request->post('nama_sekolah'),
+                'web_sekolah' => $request->post('web_sekolah'),
+                'notelp' => $request->post('telp'),
+                'alamat_sekolah' => $request->post('alamat'),
+                'kode_pos' => $request->post('kodepos'),
+                'luas_tanah' => $request->post('luas'),
+                'ruang_kelas' => $request->post('ruang'),
+                'lab' => $request->post('lab'),
+                'perpus' => $request->post('perpus'),
+                'reg_date' => Carbon::now()->toDateTimeString()
+            );
+        }
+        // if(!empty($provinsi) || !empty($kabupaten) || !empty($kecamatan)){
+        //     $prov = $provinsi[0]->nama;
+        //     $kab = $kabupaten[0]->nama;
+        //     $kec = $kecamatan[0]->nama;
+        // }else{
+        //     $dataskl = DB::table('tblsekolah')->where('idsekolah',$request->input('id'))->get();
+        //     $prov = $dataskl[0]->provinsi;
+        //     $kab = $dataskl[0]->kab_kota;
+        //     $kec = $dataskl[0]->ekc;
+        // }        
+        
+
+        // $data = array(
+        //     'npsn' => $request->post('npsn'),
+        //     'nama_sekolah' => $request->post('nama_sekolah'),
+        //     'web_sekolah' => $request->post('web_sekolah'),
+        //     'notelp' => $request->post('telp'),
+        //     'alamat_sekolah' => $request->post('alamat'),
+        //     'provinsi' => $prov,
+        //     'kab_kota' => $kab,
+        //     'kec' => $kec,
+        //     'kode_pos' => $request->post('kodepos'),
+        //     'luas_tanah' => $request->post('luas'),
+        //     'ruang_kelas' => $request->post('ruang'),
+        //     'lab' => $request->post('lab'),
+        //     'perpus' => $request->post('perpus'),
+        //     'reg_date' => Carbon::now()->toDateTimeString()
+        // );
 
         // $cek = DB::table('tblsekolah')->where('npsn', $request->post('npsn'))->get();
         // if($cek){
@@ -190,6 +235,7 @@ class DatasekolahController extends Controller
             Alert::error('Gagal', 'Gagal mengubah data !');
              return response()->json(['message'=>'fail']);
         }
+        
     }
 
     public function destroy($id)

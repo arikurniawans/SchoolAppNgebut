@@ -99,7 +99,7 @@
 </div>
 <!--end::Wrapper-->
 <!--begin::Button-->
-<a href="{{ url('datasekolah/create') }}" class="btn btn-sm btn-primary">Tambah {{$testVariable}}</a>
+<!-- <a href="{{ url('datasekolah/create') }}" class="btn btn-sm btn-primary">Tambah {{$testVariable}}</a> -->
 @endsection
 
 @section('content')

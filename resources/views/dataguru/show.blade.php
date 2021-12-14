@@ -137,7 +137,7 @@
                                 <tr>
                                     <td width="20%"><b>Status Marital</b></td>
                                     <td width="2%">:</td>
-                                    <td>@if($guru->Email == 'BM') Belum Menikah @elseif($guru->Email == 'M') Menikah @elseif($guru->Email == 'C') Cerai @endif</td>
+                                    <td>@if($guru->StatusMenikah == 'BM') Belum Menikah @elseif($guru->StatusMenikah == 'M') Menikah @elseif($guru->StatusMenikah == 'C') Cerai @endif</td>
                                 </tr>
                                 <tr>
                                     <td width="20%"><b>Golongan Darah</b></td>

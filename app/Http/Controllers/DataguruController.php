@@ -14,14 +14,14 @@ class DataguruController extends Controller
     public function getIndex(Request $request) {
         
         $data = [
-            'title' => 'Data Guru',
+            'title' => 'Data Pegawai',
             'breadcrumb' => [
                 ['url' => '/' , 'name' => 'Home'],
                 ['url' => '/interface' , 'name' => 'Interface'],
                 ['url' => '/master' , 'name' => 'List Data'],
             ],
             
-            'testVariable' => 'Guru'
+            'testVariable' => 'Pegawai'
         ];
 
         if ($request->ajax()) {
@@ -119,7 +119,7 @@ class DataguruController extends Controller
         $mapel = DB::table('tblmapel')->where('status_mapel','Y')->get();
 
         $data = [
-            'title' => 'Tambah Data guru',
+            'title' => 'Tambah Data Pegawai',
             'datamapel' => $mapel,
             'breadcrumb' => [
                 ['url' => '/' , 'name' => 'Home'],
@@ -127,7 +127,7 @@ class DataguruController extends Controller
                 ['url' => '/master' , 'name' => 'List Data'],
             ],
             
-            'testVariable' => 'Guru'
+            'testVariable' => 'Pegawai'
         ];
         
         return view('dataguru.create', $data);
@@ -138,7 +138,7 @@ class DataguruController extends Controller
         $guru = DB::table('tabelguru')->where('id',$id)->get();
 
         $data = [
-            'title' => 'Ubah Data guru',
+            'title' => 'Ubah Data Pegawai',
             'datamapel' => $mapel,
             'dataguru' => $guru,
             'breadcrumb' => [
@@ -147,7 +147,7 @@ class DataguruController extends Controller
                 ['url' => '/master' , 'name' => 'List Data'],
             ],
             
-            'testVariable' => 'Guru',
+            'testVariable' => 'Pegawai',
             'editkeluarga' => $id,
             'editjenjang' => $id,
             'editmapel' => $id,
@@ -168,7 +168,7 @@ class DataguruController extends Controller
                     ->get();
 
         $data = [
-            'title' => 'Detail Data guru',
+            'title' => 'Detail Data Pegawai',
             'datamapel' => $mapel,
             'dataguru' => $guru,
             'datakeluarga' => $keluarga,
@@ -179,7 +179,7 @@ class DataguruController extends Controller
                 ['url' => '/master' , 'name' => 'List Data'],
             ],
             
-            'testVariable' => 'Guru'
+            'testVariable' => 'Pegawai'
         ];
         
         return view('dataguru.show', $data);
@@ -291,9 +291,9 @@ class DataguruController extends Controller
         $idguru = $idgr->id; 
 
         for($a=0;$a<count($nama); $a++){
-            $tgllahir = date('Y', strtotime($request->input('tgllahirkeluarga')));
+            $tgllahirs = date('Y', strtotime($tgllahir[$a]));
             $thnsekarang = Carbon::now()->format('Y');
-            $umur = $thnsekarang - $tgllahir;
+            $umur = $thnsekarang - $tgllahirs;
 
             $datakeluarga = array(
                 'idguru' => $idguru,

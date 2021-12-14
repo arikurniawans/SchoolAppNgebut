@@ -153,9 +153,9 @@
                                 <tr>
                                     <th width="50" style="text-align:center;">No</th>
                                     <th>NIP</th>
-                                    <th>Nama Guru</th>
+                                    <th>Nama Pegawai</th>
                                     <th>No. Telepon</th>
-                                    <th>Alamat Guru</th>
+                                    <th>Alamat Pegawai</th>
                                     <th>Email</th>
                                     <th width="100px">Action</th>
                                 </tr>
