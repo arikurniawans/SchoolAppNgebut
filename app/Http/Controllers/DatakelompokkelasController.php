@@ -43,7 +43,7 @@ class DatakelompokkelasController extends Controller
 
     
     public function getCreate() {
-        $jurusan = DB::table('tabel_jurusan')->orderBy('id', 'desc')->get();
+        $jurusan = DB::table('tbljurusan')->orderBy('idjurusan', 'desc')->get();
 
         $data = [
             'title' => 'Tambah Data Kelompok Kelas',
@@ -81,9 +81,11 @@ class DatakelompokkelasController extends Controller
     public function store(Request $request)
     {
         //DB::beginTransaction();
-
+        $jurus = DB::table('tbljurusan')->where('idjurusan',$request->input('jurusan'))->get();
+        $kode = $request->input('tingkat')."".$jurus[0]->singkatan."".$request->input('nama');
         $setting = DB::table('tblkelompokkelas')->insert([
-            'kode_kelompok' => $request->input('kode'),
+            // 'kode_kelompok' => $request->input('kode'),
+            'kode_kelompok' => $kode,
             'nama_kelompok' => $request->input('nama'),
             'jurusan_kelompok' => $request->input('jurusan'),
             'tingkat_kelas' => $request->input('tingkat'),

@@ -71,34 +71,6 @@
                     <!--begin::Col-->
                     <div class="col-md-6 fv-row">
                         <!--end::Label-->
-                        <label class="required fs-5 fw-bold mb-2">Nama Kelompok Kelas <font size="2pt" color="red">*) cth. 2</font></label>
-                        <!--end::Label-->
-                        <!--end::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama" />
-                        <!--end::Input-->
-                    </div>
-                    <!--end::Col-->
-                    <div class="col-md-6 fv-row">
-                        <!--begin::Label-->
-                        <label class="required fs-5 fw-bold mb-2">Jurusan Kelompok Kelas</label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
-                        <select name="jurusan" class="form-select form-select-solid">
-                            <option value="">Silahkan Pilih Jurusan...</option>
-                            @foreach($jurusan as $jrs)
-                                <option value="{{$jrs->id}}">{{$jrs->NamaJurusan}} - ({{$jrs->KeteranganJurusan}})</option>
-                            @endforeach
-                        </select>
-                        <!--end::Input-->
-                    </div>
-                </div>
-                <div class="row mb-5">
-                    <!--begin::Col-->
-                    
-                    <!--end::Col-->
-                    <!--begin::Col-->
-                    <div class="col-md-6 fv-row">
-                        <!--end::Label-->
                         <label class="required fs-5 fw-bold mb-2">Tingkat Kelas</label>
                         <!--end::Label-->
                         <!--begin::Select-->
@@ -109,6 +81,34 @@
                             <option value="XII">XII</option>
                         </select>
                         <!--end::Select-->
+                    </div>
+                    <!--end::Col-->
+                    <div class="col-md-6 fv-row">
+                        <!--begin::Label-->
+                        <label class="required fs-5 fw-bold mb-2">Jurusan Kelompok Kelas</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <select name="jurusan" class="form-select form-select-solid">
+                            <option value="">Silahkan Pilih Jurusan...</option>
+                            @foreach($jurusan as $jrs)
+                                <option value="{{$jrs->idjurusan}}">{{$jrs->singkatan}} - ({{$jrs->nama_jurusan}})</option>
+                            @endforeach
+                        </select>
+                        <!--end::Input-->
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <!--begin::Col-->
+                    
+                    <!--end::Col-->
+                    <!--begin::Col-->                    
+                    <div class="col-md-6 fv-row">
+                        <!--end::Label-->
+                        <label class="required fs-5 fw-bold mb-2">Nama Kelompok Kelas <font size="2pt" color="red">*) cth. 2</font></label>
+                        <!--end::Label-->
+                        <!--end::Input-->
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="nama" />
+                        <!--end::Input-->
                     </div>
                     <!--end::Col-->
                 </div>
